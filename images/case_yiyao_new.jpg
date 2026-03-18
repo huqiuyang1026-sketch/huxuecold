@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+
+<title>浩爽制冷-404页面</title>
+  <meta name="keywords" content="浩爽制冷">
+  <meta name="description" content="浩爽制冷">
+ <style type="text/css">
+	* {
+		padding:0 0;
+		margin:0 0;
+	}
+	body, button, input, select, textarea {
+		font: 12px/1.5 tahoma,arial,Hiragino Sans GB,宋体b8b\4f53;
+	}
+	
+	#page {
+		width:100%;
+	}
+	#page #tapBar,#page #main,#page #links{
+		width:990px;
+		margin:0 auto;
+	}
+	#page #header {
+		height:28px;
+	}
+	#page #main {
+		height:485px;
+		background:#fff url(https://www.kvjv.com/images/404.png) left top no-repeat;
+	}
+	#page #main #errorText {
+		padding-top:210px;
+		padding-left:658px;
+	}
+	#page a {
+		text-decoration: none;
+	}
+	#page a:hover {
+		text-decoration: underline;
+	}
+	#page #header a {
+		float:left;
+		display: block;
+		font-size: 12px;
+		height: 16px;
+		line-height: 16px;
+		vertical-align: middle;
+		color: #666;
+		padding: 0 15px 0 18px;
+		margin-top:6px;
+	}
+
+	#page #footer {
+		height:102px;
+	}
+
+	#page #links a {
+		color:#838383;
+		margin:0 50px;
+		height:102px;
+		line-height:102px;
+	}
+
+	.font14B{
+		color:#707070;
+		font-size:14px;
+		font-weight:bold;
+	}
+
+	.notFoundText {
+		color:#f8813d;
+		font-size:22px;
+		font-weight:bold;
+	}
+	
+	 #page .sprites {
+		background-image: url();
+	}
+
+	.sprite-back2old{ background-position: 0 4px; background-repeat:no-repeat; margin-left:18px;} 
+	.sprite-footer{ background-position: 0 -40px; background-repeat:repeat-x;} 
+	.sprite-header{ background-position: 0 -172px; background-repeat:repeat-x;} 
+	.sprite-mobile{ background-position: 0 -227px; background-repeat:no-repeat; border-right: 1px solid #E2E2E2;} 
+	.sprite-spe{ background-position: 0 -271px; background-repeat:no-repeat;} 
+
+ </style>
+        <script src="404/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                var h = $(window).height();
+                $('body').height(h);
+                $('.mianBox').height(h-250);
+                centerWindow(".tipInfo");
+            });
+
+            //2.将盒子方法放入这个方，方便法统一调用
+            function centerWindow(a) {
+                center(a);
+                //自适应窗口
+                $(window).bind('scroll resize',
+                        function() {
+                            center(a);
+                        });
+            }
+
+            //1.居中方法，传入需要剧中的标签
+            function center(a) {
+                var wWidth = $(window).width();
+                var wHeight = $(window).height();
+                var boxWidth = $(a).width();
+                var boxHeight = $(a).height()+350;
+                var scrollTop = $(window).scrollTop();
+                var scrollLeft = $(window).scrollLeft();
+                var top = scrollTop + (wHeight - boxHeight) / 2;
+                var left = scrollLeft + (wWidth - boxWidth) / 2;
+                $(a).css({
+                    "top": top,
+                    "left": left
+                });
+            }
+        </script>
+
+    </head>
+
+ 
+
+ <body>
+
+	<div id="page">
+		<div id="header" class="sprites sprite-header">
+			<div id="tapBar"><a href="https://www.kvjv.com/" target="_blank" class="sprites sprite-back2old">浩爽制冷</a>
+			</div>
+		</div>
+		<div id="main">
+			<div id="errorText">
+<!--				<p class="notFoundText">啊哦~ 页面找不到了</p>
+				<p class="font14B">要不，换个地方瞧瞧...<p>-->
+			</div>
+                    <style>
+                        .hrefclass{
+                                text-align: right;
+    padding-top: 96px;
+    font-size: 24px;
+    color:#838383;padding-right: 142px;
+                        }
+                         .hrefclass a{color:red;padding: 0 8px;}
+                        </style>
+ <div class="hrefclass"><span>页面自动<a id="href" href="https://www.kvjv.com/">跳转</a></span><span>等待<b id="wait">6</b>秒</span></div>
+                        <script type="text/javascript">                            (function() {
+                                var wait = document.getElementById('wait'), href = document.getElementById('href').href;
+                                var interval = setInterval(function() {
+                                    var time = --wait.innerHTML;
+                                    if (time <= 0) {
+                                        location.href = href;
+                                        clearInterval(interval);
+                                    }
+                                    ;
+                                }, 1000);
+                            })();
+                        </script>
+		</div>
+		<div id="footer" class="sprites sprite-footer">
+			<div id="links">
+                            <a href="https://www.kvjv.com" target="_blank" class="font14B">浩爽制冷</a>
+                            <a href="/business/7.html" target="_blank" class="font14B">核心业务</a>
+                            <a href="/projects/91.html" target="_blank" class="font14B">项目案例</a>
+                            <a href="/certificate/4.html" target="_blank" class="font14B">荣誉资质</a>
+                            <a href="/feature/32.html" target="_blank" class="font14B">数字化冷链</a>
+                            <a href="/contact.html" target="_blank" class="font14B">联系我们</a>
+                        </div>
+		</div>
+	</div>
+</body></html>
