@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>某生鲜连锁超市冷库项目_沪升制冷</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; color: #333; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, #0077cc 0%, #0055aa 100%); color: white; padding: 15px 0; position: fixed; top: 0; width: 100%; z-index: 1000; }
+        .header-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .logo { font-size: 24px; font-weight: bold; display: flex; align-items: center; }
+        .logo-icon { width: 40px; height: 40px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; color: #0077cc; font-weight: bold; font-size: 20px; }
+        .nav { display: flex; gap: 30px; }
+        .nav a { color: white; text-decoration: none; font-size: 15px; }
+        .breadcrumb { background: #f5f5f5; padding: 12px 0; margin-top: 70px; }
+        .breadcrumb-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; font-size: 13px; color: #666; }
+        .breadcrumb a { color: #0077cc; text-decoration: none; }
+        .main { max-width: 1200px; margin: 0 auto; padding: 30px 20px; }
+        .case-hero { background: linear-gradient(135deg, #0077cc 0%, #00aaff 100%); color: white; padding: 50px; border-radius: 10px; text-align: center; margin-bottom: 30px; }
+        .case-hero h1 { font-size: 32px; margin-bottom: 10px; }
+        .case-hero p { font-size: 18px; opacity: 0.9; }
+        .case-section { margin-bottom: 40px; }
+        .case-section h2 { font-size: 22px; color: #0077cc; border-left: 4px solid #0077cc; padding-left: 15px; margin-bottom: 20px; }
+        .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .case-card { background: white; border-radius: 10px; padding: 25px; box-shadow: 0 3px 15px rgba(0,0,0,0.08); text-align: center; }
+        .case-card .icon { font-size: 48px; margin-bottom: 15px; }
+        .case-card h4 { color: #333; margin-bottom: 10px; }
+        .case-card p { color: #666; font-size: 14px; }
+        .info-table { width: 100%; border-collapse: collapse; }
+        .info-table th, .info-table td { border: 1px solid #ddd; padding: 15px; text-align: left; }
+        .info-table th { background: linear-gradient(135deg, #0077cc 0%, #0055aa 100%); color: white; width: 180px; }
+        .info-table tr:nth-child(even) { background: #f8fbff; }
+        .process-steps { display: flex; gap: 15px; }
+        .step { flex: 1; text-align: center; padding: 20px; background: #f8fbff; border-radius: 8px; position: relative; }
+        .step-num { width: 35px; height: 35px; background: #0077cc; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-weight: bold; }
+        .step h4 { color: #333; font-size: 14px; }
+        .step p { color: #666; font-size: 12px; }
+        .step-arrow { position: absolute; right: -15px; top: 50%; transform: translateY(-50%); color: #0077cc; font-size: 20px; }
+        .step:last-child .step-arrow { display: none; }
+        .cta { background: linear-gradient(135deg, #0077cc 0%, #0055aa 100%); color: white; padding: 30px; border-radius: 10px; text-align: center; margin: 30px 0; }
+        .cta h3 { font-size: 22px; margin-bottom: 10px; }
+        .cta p { opacity: 0.9; margin-bottom: 15px; }
+        .cta-btn { display: inline-block; background: white; color: #0077cc; padding: 12px 30px; border-radius: 25px; text-decoration: none; font-weight: bold; }
+        .footer { background: #333; color: white; text-align: center; padding: 20px; margin-top: 40px; }
+        .footer p { font-size: 13px; opacity: 0.8; }
+        @media (max-width: 768px) { .case-grid, .process-steps { grid-template-columns: 1fr; } .nav { display: none; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo"><div class="logo-icon">H</div><span>沪升制冷</span></div>
+            <nav class="nav">
+                <a href="index.html">首页</a>
+                <a href="index.html#products">产品中心</a>
+                <a href="cases.html">工程案例</a>
+                <a href="index.html#contact">联系我们</a>
+            </nav>
+        </div>
+    </header>
+    <div class="breadcrumb">
+        <div class="breadcrumb-content"><a href="index.html">首页</a> > <a href="cases.html">工程案例</a> > 某生鲜连锁超市冷库项目</div>
+    </div>
+    <div class="main">
+        <div class="case-hero">
+            <h1>🏪 某生鲜连锁超市冷库项目</h1>
+            <p>200㎡生鲜配送冷库 | 20家门店冷链配送</p>
+        </div>
+        <div class="case-section">
+            <h2>项目概况</h2>
+            <table class="info-table">
+                <tr><th>客户名称</th><td>苏州某生鲜连锁超市</td></tr>
+                <tr><th>项目类型</th><td>商超零售冷库</td></tr>
+                <tr><th>冷库规模</th><td>200㎡（配送中心）</td></tr>
+                <tr><th>温度要求</th><td>0-5℃（生鲜保鲜）</td></tr>
+                <tr><th>建成时间</th><td>2025年4月</td></tr>
+                <tr><th>项目特点</th><td>配套20家门店的生鲜冷链配送</td></tr>
+            </table>
+        </div>
+        <div class="case-section">
+            <h2>冷库配置</h2>
+            <div class="case-grid">
+                <div class="case-card"><div class="icon">🥬</div><h4>保鲜库</h4><p>150㎡，0-5℃，蔬菜水果保鲜</p></div>
+                <div class="case-card"><div class="icon">🥩</div><h4>冷藏库</h4><p>50㎡，0-4℃，肉类保鲜储存</p></div>
+                <div class="case-card"><div class="icon">🚚</div><h4>冷链配送</h4><p>冷藏车配送，门店覆盖苏州城区</p></div>
+            </div>
+        </div>
+        <div class="case-section">
+            <h2>施工流程</h2>
+            <div class="process-steps">
+                <div class="step"><div class="step-num">1</div><h4>需求沟通</h4><p>了解门店配送需求</p><span class="step-arrow">→</span></div>
+                <div class="step"><div class="step-num">2</div><h4>方案设计</h4><p>配送中心冷链方案</p><span class="step-arrow">→</span></div>
+                <div class="step"><div class="step-num">3</div><h4>施工安装</h4><p>快速施工安装</p><span class="step-arrow">→</span></div>
+                <div class="step"><div class="step-num">4</div><h4>冷链对接</h4><p>配送车辆配套</p><span class="step-arrow">→</span></div>
+                <div class="step"><div class="step-num">5</div><h4>运营培训</h4><p>正式运营</p></div>
+            </div>
+        </div>
+        <div class="case-section">
+            <h2>客户评价</h2>
+            <p style="color: #666; background: #f8fbff; padding: 20px; border-radius: 8px; border-left: 4px solid #0077cc;">
+                "我们以前都是小供应商送货，品质不稳定。自从建了这个配送冷库，生鲜品质大幅提升，损耗率从30%降到了10%以下。沪升制冷给了我们一个完整的冷链解决方案，现在20家门店的生鲜都是统一配送，新鲜度大大提高了。"
+            </p>
+            <p style="color: #999; margin-top: 10px;">—— 苏州某生鲜连锁超市 陈总</p>
+        </div>
+        <div class="cta">
+            <h3>需要建造商超冷库？</h3>
+            <p>专业团队免费为您提供方案设计和报价</p>
+            <a href="index.html#contact" class="cta-btn">立即咨询</a>
+        </div>
+    </div>
+    <footer class="footer"><p>© 2026 沪升（无锡）制冷科技有限公司 版权所有</p></footer>
+</body>
+</html>
