@@ -1,0 +1,165 @@
+/* 顶部辅助栏 */
+.top-bar {
+    background: #f5f5f5;
+    padding: 8px 0;
+    font-size: 13px;
+    border-bottom: 1px solid #eee;
+}
+
+.top-bar-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.top-bar-left {
+    color: #666;
+}
+
+.top-bar-right a {
+    color: #666;
+    text-decoration: none;
+    margin-left: 15px;
+    transition: color 0.3s;
+}
+
+.top-bar-right a:hover {
+    color: #0077cc;
+}
+
+/* 主头部区域 */
+.main-header {
+    background: white;
+    padding: 20px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.header-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-section img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.logo-text h1 {
+    font-size: 24px;
+    color: #0077cc;
+    margin-bottom: 5px;
+}
+
+.logo-text p {
+    font-size: 12px;
+    color: #999;
+}
+
+/* 联系方式 */
+.header-contact {
+    text-align: right;
+}
+
+.header-contact p {
+    color: #666;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.header-contact .phone {
+    font-size: 22px;
+    color: #cc0000;
+    font-weight: bold;
+}
+
+/* 主导航栏 */
+.main-nav {
+    background: linear-gradient(135deg, #0055aa 0%, #0077cc 100%);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 15px 25px;
+    display: block;
+    transition: all 0.3s;
+}
+
+.nav > a:hover,
+.nav > a.active {
+    background: rgba(255,255,255,0.15);
+}
+
+.nav a.hot {
+    background: #cc0000;
+}
+
+.nav a.hot:hover {
+    background: #aa0000;
+}
+
+/* 下拉菜单 */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 180px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: #333 !important;
+    padding: 12px 20px !important;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px !important;
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content a:hover {
+    background: #0077cc !important;
+    color: white !important;
+}
+
+.dropdown > a::after {
+    content: ' ▼';
+    font-size: 10px;
+}
