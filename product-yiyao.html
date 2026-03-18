@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医药阴凉库_沪升制冷科技</title>
+    <meta name="description" content="沪升制冷医药阴凉库工程，适用于药品、试剂、生物制品恒温储存">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; color: #333; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, #0077cc 0%, #0055aa 100%); color: white; padding: 15px 0; position: fixed; top: 0; width: 100%; z-index: 1000; }
+        .header-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .logo { font-size: 24px; font-weight: bold; display: flex; align-items: center; }
+        .logo-icon { width: 40px; height: 40px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; color: #0077cc; font-weight: bold; font-size: 20px; }
+        .nav { display: flex; gap: 30px; }
+        .nav a { color: white; text-decoration: none; font-size: 15px; }
+        .breadcrumb { background: #f5f5f5; padding: 12px 0; margin-top: 70px; }
+        .breadcrumb-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; font-size: 13px; color: #666; }
+        .breadcrumb a { color: #0077cc; text-decoration: none; }
+        .main { max-width: 1200px; margin: 0 auto; padding: 30px 20px; display: flex; gap: 30px; }
+        .sidebar { width: 260px; flex-shrink: 0; }
+        .sidebar-menu { background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); overflow: hidden; }
+        .sidebar-menu h3 { background: linear-gradient(135deg, #0077cc 0%, #0055aa 100%); color: white; padding: 15px 20px; font-size: 16px; }
+        .sidebar-menu ul { list-style: none; }
+        .sidebar-menu li a { display: block; padding: 14px 20px; color: #333; text-decoration: none; border-bottom: 1px solid #f0f0f0; transition: all 0.3s; font-size: 14px; }
+        .sidebar-menu li a:hover, .sidebar-menu li a.active { background: #e6f3ff; color: #0077cc; }
+        .content { flex: 1; }
+        .page-header { border-bottom: 2px solid #0077cc; padding-bottom: 15px; margin-bottom: 30px; }
+        .page-header h1 { font-size: 28px; color: #0077cc; display: flex; align-items: center; gap: 15px; }
+        .page-header h1 span { font-size: 36px; }
+        .intro { background: linear-gradient(135deg, #e6f3ff 0%, #f0f7ff 100%); padding: 25px; border-radius: 8px; margin-bottom: 30px; border-left: 4px solid #0077cc; }
+        .intro h3 { color: #0077cc; margin-bottom: 10px; }
+        .intro p { color: #666; line-height: 1.8; }
+        .features { margin-bottom: 30px; }
+        .features h2 { font-size: 20px; color: #333; border-left: 4px solid #0077cc; padding-left: 15px; margin-bottom: 20px; }
+        .feature-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .feature-item { display: flex; align-items: center; gap: 12px; padding: 15px; background: #f8fbff; border-radius: 8px; border: 1px solid #e0e0e0; }
+        .feature-icon { width: 40px; height: 40px; background: #0077cc; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; flex-shrink: 0; }
+        .feature-text h4 { font-size: 15px; color: #333; margin-bottom: 3px; }
+        .feature-text p { font-size: 13px; color: #666; }
+        .params { margin-bottom: 30px; }
+        .params h2 { font-size: 20px; color: #333; border-left: 4px solid #0077cc; padding-left: 15px; margin-bottom: 20px; }
+        .params-table { width: 100%; border-collapse: collapse; }
+        .params-table th, .params-table td { border: 1px solid #ddd; padding: 12px; text-align: left; font-size: 14px; }
+        .params-table th { background: linear-gradient(135deg, #0077cc 0%, #0055aa 100%); color: white; width: 180px; }
+        .params-table tr:nth-child(even) { background: #f8fbff; }
+        .process { margin-bottom: 30px; }
+        .process h2 { font-size: 20px; color: #333; border-left: 4px solid #0077cc; padding-left: 15px; margin-bottom: 20px; }
+        .process-steps { display: flex; gap: 15px; }
+        .step { flex: 1; text-align: center; padding: 20px; background: #f8fbff; border-radius: 8px; position: relative; }
+        .step-num { width: 35px; height: 35px; background: #0077cc; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-weight: bold; }
+        .step h4 { color: #333; font-size: 14px; margin-bottom: 5px; }
+        .step p { color: #666; font-size: 12px; }
+        .step-arrow { position: absolute; right: -15px; top: 50%; transform: translateY(-50%); color: #0077cc; font-size: 20px; }
+        .step:last-child .step-arrow { display: none; }
+        .cta { background: linear-gradient(135deg, #0077cc 0%, #0055aa 100%); color: white; padding: 30px; border-radius: 8px; text-align: center; margin-bottom: 30px; }
+        .cta h3 { font-size: 22px; margin-bottom: 10px; }
+        .cta p { opacity: 0.9; margin-bottom: 15px; }
+        .cta-btn { display: inline-block; background: white; color: #0077cc; padding: 12px 30px; border-radius: 25px; text-decoration: none; font-weight: bold; }
+        .footer { background: #333; color: white; text-align: center; padding: 20px; margin-top: 40px; }
+        .footer p { font-size: 13px; opacity: 0.8; }
+        .float-form { position: fixed; right: 20px; bottom: 100px; width: 300px; background: white; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); z-index: 1000; }
+        .float-form-header { background: linear-gradient(135deg, #0077cc 0%, #0055aa 100%); color: white; padding: 15px; font-weight: bold; border-radius: 10px 10px 0 0; }
+        .float-form-body { padding: 15px; }
+        .float-form-body input, .float-form-body textarea { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 13px; }
+        .float-form-body textarea { height: 80px; resize: none; }
+        .float-form-body button { width: 100%; background: linear-gradient(135deg, #0077cc 0%, #0055aa 100%); color: white; border: none; padding: 12px; border-radius: 5px; cursor: pointer; font-size: 14px; }
+        @media (max-width: 768px) { .main { flex-direction: column; } .sidebar { width: 100%; } .feature-list, .process-steps { grid-template-columns: 1fr; } .nav { display: none; } .float-form { display: none; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo"><div class="logo-icon">H</div><span>沪升制冷</span></div>
+            <nav class="nav">
+                <a href="index.html#about">关于我们</a>
+                <a href="index.html#products">产品中心</a>
+                <a href="index.html#advantages">优势服务</a>
+                <a href="cases.html">工程案例</a>
+                <a href="index.html#contact">联系我们</a>
+            </nav>
+        </div>
+    </header>
+    <div class="breadcrumb"><div class="breadcrumb-content"><a href="index.html">首页</a> > <a href="index.html#products">产品中心</a> > 医药阴凉库</div></div>
+    <div class="main">
+        <aside class="sidebar">
+            <div class="sidebar-menu">
+                <h3>产品中心</h3>
+                <ul>
+                    <li><a href="product-baoxian.html">保鲜冷库</a></li>
+                    <li><a href="product-diwen.html">低温冷库</a></li>
+                    <li><a href="product-sudong.html">速冻冷库</a></li>
+                    <li><a href="product-yiyao.html" class="active">医药阴凉库</a></li>
+                    <li><a href="product-wuliu.html">物流冷库</a></li>
+                    <li><a href="product-gongye.html">工业制冷</a></li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div class="page-header"><h1><span>💊</span> 医药阴凉库</h1></div>
+            <div class="intro">
+                <h3>产品介绍</h3>
+                <p>医药阴凉库是专门用于储存药品、试剂、生物制品等医药产品的冷库设施，温度通常控制在8℃~20℃（阴凉库）或2℃~8℃（冷藏库）。严格符合GSP认证要求，保障药品质量与安全。</p>
+            </div>
+            <div class="features">
+                <h2>产品特点</h2>
+                <div class="feature-list">
+                    <div class="feature-item"><div class="feature-icon">✅</div><div class="feature-text"><h4>GSP认证</h4><p>完全符合药品GSP认证要求</p></div></div>
+                    <div class="feature-item"><div class="feature-icon">🌡</div><div class="feature-text"><h4>精准控温</h4><p>温度精度±1℃，恒定可靠</p></div></div>
+                    <div class="feature-item"><div class="feature-icon">📊</div><div class="feature-text"><h4>实时监控</h4><p>温湿度实时监测，数据记录</p></div></div>
+                    <div class="feature-item"><div class="feature-icon">🔔</div><div class="feature-text"><h4>异常报警</h4><p>温度超标即时报警，24小时监控</p></div></div>
+                </div>
+            </div>
+            <div class="params">
+                <h2>技术参数</h2>
+                <table class="params-table">
+                    <tr><th>温度范围</th><td>阴凉库：8℃~20℃ / 冷藏库：2℃~8℃</td></tr>
+                    <tr><th>湿度范围</th><td>35%~75%（可调）</td></tr>
+                    <tr><th>温控精度</th><td>±1℃</td></tr>
+                    <tr><th>控制系统</th><td>PLC/触摸屏控制，数据记录打印</td></tr>
+                    <tr><th>报警系统</th><td>声光报警，短信通知（可选）</td></tr>
+                    <tr><th>验证服务</th><td>提供GSP验证服务</td></tr>
+                </table>
+            </div>
+            <div class="process">
+                <h2>服务流程</h2>
+                <div class="process-steps">
+                    <div class="step"><div class="step-num">1</div><h4>需求沟通</h4><p>了解客户需求</p><span class="step-arrow">→</span></div>
+                    <div class="step"><div class="step-num">2</div><h4>现场勘测</h4><p>测量场地尺寸</p><span class="step-arrow">→</span></div>
+                    <div class="step"><div class="step-num">3</div><h4>方案设计</h4><p>定制专业方案</p><span class="step-arrow">→</span></div>
+                    <div class="step"><div class="step-num">4</div><h4>安装调试</h4><p>专业施工安装</p><span class="step-arrow">→</span></div>
+                    <div class="step"><div class="step-num">5</div><h4>验证服务</h4><p>GSP验证通过</p></div>
+                </div>
+            </div>
+            <div class="cta">
+                <h3>需要建造医药冷库？</h3>
+                <p>专业团队免费为您提供方案设计和报价</p>
+                <a href="index.html#contact" class="cta-btn">立即咨询</a>
+            </div>
+        </main>
+    </div>
+    <footer class="footer"><p>© 2026 沪升（无锡）制冷科技有限公司 版权所有</p></footer>
+    <div class="float-form"><div class="float-form-header">在线留言</div><div class="float-form-body"><input type="text" placeholder="您的姓名"><input type="tel" placeholder="联系电话"><textarea placeholder="请填写您的需求..."></textarea><button>提交留言</button></div></div>
+</body>
+</html>
