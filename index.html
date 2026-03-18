@@ -123,7 +123,7 @@
         /* 主内容区 */
         .main-container {
             max-width: 1200px;
-            margin: 180px auto 0;
+            margin: 0 auto;
             display: flex;
             gap: 20px;
             padding: 20px;
@@ -515,11 +515,12 @@
         }
     
         /* 顶部辅助栏 */
+        /* 顶部辅助栏 */
         .top-bar {
             background: #f5f5f5;
             padding: 8px 0;
-            font-size: 13px;
-            border-bottom: 1px solid #eee;
+            font-size: 12px;
+            border-bottom: 1px solid #e0e0e0;
         }
         
         .top-bar-content {
@@ -528,6 +529,7 @@
             padding: 0 20px;
             display: flex;
             justify-content: space-between;
+            align-items: center;
         }
         
         .top-bar-left {
@@ -537,8 +539,13 @@
         .top-bar-right a {
             color: #666;
             text-decoration: none;
-            margin-left: 15px;
+            padding: 0 12px;
+            border-right: 1px solid #ccc;
             transition: color 0.3s;
+        }
+        
+        .top-bar-right a:last-child {
+            border-right: none;
         }
         
         .top-bar-right a:hover {
@@ -548,7 +555,7 @@
         /* 主头部区域 */
         .main-header {
             background: white;
-            padding: 20px 0;
+            padding: 15px 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
         
@@ -568,34 +575,62 @@
         }
         
         .logo-section img {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             object-fit: contain;
         }
         
         .logo-text h1 {
-            font-size: 24px;
-            color: #0077cc;
-            margin-bottom: 5px;
+            font-size: 28px;
+            color: #0066cc;
+            margin-bottom: 3px;
         }
         
         .logo-text p {
-            font-size: 12px;
+            font-size: 11px;
             color: #999;
+            letter-spacing: 1px;
         }
         
-        .header-contact {
-            text-align: right;
+        /* 中间宣传语 */
+        .header-tagline {
+            text-align: center;
+            flex: 1;
+            padding: 0 40px;
         }
         
-        .header-contact p {
-            color: #666;
-            font-size: 13px;
+        .header-tagline h2 {
+            font-size: 20px;
+            color: #333;
             margin-bottom: 5px;
         }
         
+        .header-tagline p {
+            font-size: 13px;
+            color: #cc0000;
+            font-weight: bold;
+        }
+        
+        .header-tagline .en {
+            font-size: 11px;
+            color: #999;
+            margin-top: 3px;
+        }
+        
+        /* 联系电话 */
+        .header-contact {
+            text-align: right;
+            min-width: 200px;
+        }
+        
+        .header-contact .label {
+            font-size: 13px;
+            color: #333;
+            margin-bottom: 3px;
+        }
+        
         .header-contact .phone {
-            font-size: 22px;
+            font-size: 24px;
             color: #cc0000;
             font-weight: bold;
         }
@@ -611,22 +646,24 @@
         .nav-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0;
             display: flex;
+            align-items: center;
         }
         
         .nav-content a {
             color: white;
             text-decoration: none;
             font-size: 15px;
-            padding: 15px 25px;
+            padding: 15px 28px;
             display: block;
             transition: all 0.3s;
+            text-align: center;
         }
         
         .nav-content > a:hover,
         .nav-content > a.active {
-            background: rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.2);
         }
         
         .nav-content a.hot {
@@ -642,6 +679,11 @@
             position: relative;
         }
         
+        .dropdown > a::after {
+            content: ' ∨';
+            font-size: 10px;
+        }
+        
         .dropdown-content {
             display: none;
             position: absolute;
@@ -650,7 +692,7 @@
             background: white;
             min-width: 180px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-            border-radius: 0 0 8px 8px;
+            border-radius: 0 0 4px 4px;
             overflow: hidden;
         }
         
@@ -663,6 +705,7 @@
             padding: 12px 20px !important;
             border-bottom: 1px solid #f0f0f0;
             font-size: 14px !important;
+            text-align: left !important;
         }
         
         .dropdown-content a:last-child {
@@ -673,11 +716,6 @@
             background: #0077cc !important;
             color: white !important;
         }
-        
-        .dropdown > a::after {
-            content: ' ▼';
-            font-size: 10px;
-        }
 
         </style>
 </head>
@@ -687,7 +725,7 @@
     <div class="top-bar">
         <div class="top-bar-content">
             <div class="top-bar-left">
-                欢迎访问沪升（无锡）制冷科技有限公司官方网站！
+                欢迎访问沪升（无锡）制冷科技有限公司官方网站！冷库建造业务覆盖全国各地区，欢迎您联系我们！
             </div>
             <div class="top-bar-right">
                 <a href="index.html">首页</a>
@@ -707,9 +745,14 @@
                     <p>HUSHENG REFRIGERATION</p>
                 </div>
             </div>
+            <div class="header-tagline">
+                <h2>冷库设计安装一体化解决方案建造商</h2>
+                <p>专业冷库建设 | 全国销售 | 免费报价</p>
+                <div class="en">Cold Storage Design & Construction</div>
+            </div>
             <div class="header-contact">
-                <p>全国客服咨询热线</p>
-                <p class="phone">400-888-8888</p>
+                <div class="label">全国客服咨询热线</div>
+                <div class="phone">400-888-8888</div>
             </div>
         </div>
     </div>
@@ -739,7 +782,7 @@
                 </div>
             </div>
             <a href="about.html">关于我们</a>
-            <a href="index.html#contact" class="hot">在线咨询</a>
+            <a href="index.html#contact" class="hot">联系我们</a>
         </div>
     </div>
 
