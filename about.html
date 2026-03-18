@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们_沪升制冷科技</title>
+    <meta name="description" content="沪升制冷-专业冷库设计安装服务商">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; color: #333; line-height: 1.6; }
+        
+        .header { background: linear-gradient(135deg, #0077cc 0%, #0055aa 100%); color: white; padding: 15px 0; position: fixed; top: 0; width: 100%; z-index: 1000; }
+        .header-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .logo { font-size: 24px; font-weight: bold; display: flex; align-items: center; }
+        .logo-icon { width: 40px; height: 40px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; color: #0077cc; font-weight: bold; font-size: 20px; }
+        .nav { display: flex; gap: 30px; }
+        .nav a { color: white; text-decoration: none; font-size: 15px; }
+        
+        .breadcrumb { background: #f5f5f5; padding: 12px 0; margin-top: 70px; }
+        .breadcrumb-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; font-size: 13px; color: #666; }
+        .breadcrumb a { color: #0077cc; text-decoration: none; }
+        
+        .main { max-width: 1200px; margin: 0 auto; padding: 30px 20px; display: flex; gap: 30px; }
+        .sidebar { width: 260px; flex-shrink: 0; }
+        .sidebar-menu { background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); overflow: hidden; }
+        .sidebar-menu h3 { background: linear-gradient(135deg, #0077cc 0%, #0055aa 100%); color: white; padding: 15px 20px; font-size: 16px; }
+        .sidebar-menu ul { list-style: none; }
+        .sidebar-menu li a { display: block; padding: 14px 20px; color: #333; text-decoration: none; border-bottom: 1px solid #f0f0f0; transition: all 0.3s; font-size: 14px; }
+        .sidebar-menu li a:hover, .sidebar-menu li a.active { background: #e6f3ff; color: #0077cc; }
+        
+        .content { flex: 1; }
+        
+        .about-hero {
+            background: linear-gradient(135deg, #0077cc 0%, #00aaff 100%);
+            color: white;
+            padding: 50px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .about-hero h1 { font-size: 36px; margin-bottom: 15px; }
+        .about-hero p { font-size: 18px; opacity: 0.9; }
+        
+        .section { margin-bottom: 40px; }
+        .section h2 { font-size: 22px; color: #0077cc; border-left: 4px solid #0077cc; padding-left: 15px; margin-bottom: 20px; }
+        
+        .company-info { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .info-card {
+            background: #f8fbff;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #0077cc;
+        }
+        .info-card h3 { color: #333; font-size: 16px; margin-bottom: 10px; }
+        .info-card p { color: #666; font-size: 14px; }
+        
+        .timeline { position: relative; padding-left: 30px; }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #0077cc;
+        }
+        .timeline-item { position: relative; margin-bottom: 25px; }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: #0077cc;
+            border-radius: 50%;
+        }
+        .timeline-item h4 { color: #0077cc; font-size: 16px; margin-bottom: 5px; }
+        .timeline-item p { color: #666; font-size: 14px; }
+        
+        .team { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .team-member {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        .team-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #0077cc 0%, #00aaff 100%);
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: white;
+        }
+        .team-member h4 { color: #333; font-size: 15px; margin-bottom: 5px; }
+        .team-member p { color: #666; font-size: 13px; }
+        
+        .honor { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; }
+        .honor-item {
+            text-align: center;
+            padding: 20px;
+            background: #f8fbff;
+            border-radius: 8px;
+        }
+        .honor-icon { font-size: 36px; margin-bottom: 10px; }
+        .honor-item p { color: #666; font-size: 12px; }
+        
+        .cta {
+            background: linear-gradient(135deg, #0077cc 0%, #0055aa 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        .cta h3 { font-size: 22px; margin-bottom: 10px; }
+        .cta p { opacity: 0.9; margin-bottom: 15px; }
+        .cta-btn { display: inline-block; background: white; color: #0077cc; padding: 12px 30px; border-radius: 25px; text-decoration: none; font-weight: bold; }
+        
+        .footer { background: #333; color: white; text-align: center; padding: 20px; margin-top: 40px; }
+        .footer p { font-size: 13px; opacity: 0.8; }
+        
+        @media (max-width: 768px) {
+            .main { flex-direction: column; }
+            .sidebar { width: 100%; }
+            .company-info, .team, .honor { grid-template-columns: 1fr; }
+            .nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo"><div class="logo-icon">H</div><span>沪升制冷</span></div>
+            <nav class="nav">
+                <a href="index.html#about">关于我们</a>
+                <a href="index.html#products">产品中心</a>
+                <a href="index.html#advantages">优势服务</a>
+                <a href="cases.html">工程案例</a>
+                <a href="index.html#contact">联系我们</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <div class="breadcrumb-content">
+            <a href="index.html">首页</a> > 关于我们
+        </div>
+    </div>
+
+    <div class="main">
+        <aside class="sidebar">
+            <div class="sidebar-menu">
+                <h3>关于我们</h3>
+                <ul>
+                    <li><a href="about.html" class="active">公司简介</a></li>
+                    <li><a href="cases.html">工程案例</a></li>
+                    <li><a href="index.html#contact">联系我们</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="content">
+            <div class="about-hero">
+                <h1>沪升制冷科技</h1>
+                <p>专注冷库设计、生产、安装、维修 一站式解决方案</p>
+            </div>
+
+            <div class="section">
+                <h2>公司简介</h2>
+                <p style="color: #666; line-height: 1.8; margin-bottom: 20px;">
+                    沪升（无锡）制冷科技有限公司，专注于冷库设计、生产、安装、维修及一站式冷链解决方案，是集技术研发、工程施工、售后服务于一体的专业制冷企业。公司依托成熟的技术团队与丰富的行业经验，为食品加工、生鲜冷链、医药储存、物流仓储、餐饮连锁、农副产品等行业提供高品质、节能型冷库工程。
+                </p>
+                <p style="color: #666; line-height: 1.8;">
+                    我们坚持以品质为核心、以客户需求为导向，从现场勘测、方案定制、设备选型到安装调试、售后维保，提供全流程专业服务，确保每一套冷库系统稳定、高效、节能运行。立足无锡，服务长三角，致力于成为客户信赖的一站式制冷解决方案服务商。
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>公司信息</h2>
+                <div class="company-info">
+                    <div class="info-card">
+                        <h3>📍 公司地址</h3>
+                        <p>江苏省无锡市宜兴市万石镇南漕人民东路1号</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>📞 服务热线</h3>
+                        <p>400-888-8888</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>📧 邮箱</h3>
+                        <p>hengsheng@163.com</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>🏭 业务范围</h3>
+                        <p>冷库设计、冷库安装、冷库维修、制冷设备销售</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>发展历程</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>2015年 公司成立</h4>
+                        <p>沪升制冷正式成立，开始专注于冷库工程领域</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>2017年 规模扩大</h4>
+                        <p>迁入新址，团队扩展至50余人，业务覆盖长三角</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>2019年 资质升级</h4>
+                        <p>获得制冷工程安装资质，承接大型冷链项目</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>2022年 技术创新</h4>
+                        <p>引入智能温控系统，提供节能型冷库解决方案</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>2026年 持续发展</h4>
+                        <p>服务企业超过500家，成为区域领先制冷服务商</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>核心优势</h2>
+                <div class="company-info">
+                    <div class="info-card">
+                        <h3>🔧 专业团队</h3>
+                        <p>拥有经验丰富的工程师团队和专业技术施工队伍</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>⚡ 节能技术</h3>
+                        <p>采用高效节能机组，为客户降低运行成本</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>🛡 品质保障</h3>
+                        <p>选用品牌设备，严格把控工程质量</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>🔔 售后服务</h3>
+                        <p>24小时响应，提供终身技术支持</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>资质荣誉</h2>
+                <div class="honor">
+                    <div class="honor-item">
+                        <div class="honor-icon">📜</div>
+                        <p>制冷工程资质</p>
+                    </div>
+                    <div class="honor-item">
+                        <div class="honor-icon">✅</div>
+                        <p>ISO9001认证</p>
+                    </div>
+                    <div class="honor-item">
+                        <div class="honor-icon">🏆</div>
+                        <p>AAA级信用</p>
+                    </div>
+                    <div class="honor-item">
+                        <div class="honor-icon">🔧</div>
+                        <p>安装资质</p>
+                    </div>
+                    <div class="honor-item">
+                        <div class="honor-icon">💼</div>
+                        <p>营业执照</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta">
+                <h3>欢迎各界朋友洽谈合作</h3>
+                <p>专业团队为您提供免费咨询和方案设计</p>
+                <a href="index.html#contact" class="cta-btn">联系我们</a>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <p>© 2026 沪升（无锡）制冷科技有限公司 版权所有</p>
+    </footer>
+</body>
+</html>

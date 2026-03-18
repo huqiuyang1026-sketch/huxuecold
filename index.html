@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>沪升制冷 - 冷库设计安装一站式解决方案</title>
+    <meta name="description" content="沪升（无锡）制冷科技有限公司专注于冷库设计、生产、安装、维修及一站式冷链解决方案">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* 顶部导航 */
+        .header {
+            background: linear-gradient(135deg, #0077cc 0%, #0055aa 100%);
+            color: white;
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            color: #0077cc;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            transition: opacity 0.3s;
+        }
+        
+        .nav a:hover {
+            opacity: 0.8;
+        }
+        
+        /* 主内容区 */
+        .main-container {
+            max-width: 1200px;
+            margin: 70px auto 0;
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            min-height: calc(100vh - 70px);
+        }
+        
+        /* 左侧导航 */
+        .sidebar {
+            width: 220px;
+            flex-shrink: 0;
+        }
+        
+        .sidebar-menu {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        
+        .sidebar-menu h3 {
+            background: linear-gradient(135deg, #0077cc 0%, #0055aa 100%);
+            color: white;
+            padding: 15px 20px;
+            font-size: 16px;
+        }
+        
+        .sidebar-menu ul {
+            list-style: none;
+        }
+        
+        .sidebar-menu li a {
+            display: block;
+            padding: 14px 20px;
+            color: #333;
+            text-decoration: none;
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+        
+        .sidebar-menu li a:hover,
+        .sidebar-menu li a.active {
+            background: #e6f3ff;
+            color: #0077cc;
+            padding-left: 25px;
+        }
+        
+        /* 右侧内容 */
+        .content {
+            flex: 1;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            padding: 30px;
+        }
+        
+        /* Banner */
+        .banner {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #0077cc 0%, #00aaff 50%, #0077cc 100%),
+                        url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1200&h=400&fit=crop') center/cover;
+            background-blend-mode: overlay;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/></svg>') center/200px repeat;
+        }
+        
+        .banner h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .banner p {
+            font-size: 18px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* 标题样式 */
+        .section-title {
+            font-size: 24px;
+            color: #0077cc;
+            border-left: 4px solid #0077cc;
+            padding-left: 15px;
+            margin: 30px 0 20px;
+        }
+        
+        .section-title:first-of-type {
+            margin-top: 0;
+        }
+        
+        /* 关于我们 */
+        .about-text {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        /* 产品卡片 */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .product-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s;
+            background: white;
+        }
+        
+        .product-card:hover {
+            box-shadow: 0 4px 15px rgba(0,119,204,0.15);
+            border-color: #0077cc;
+            transform: translateY(-3px);
+        }
+        
+        .product-card .product-icon {
+            font-size: 36px;
+            margin-bottom: 12px;
+            display: block;
+        }
+        
+        .product-card h4 {
+            color: #0077cc;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .product-card p {
+            color: #666;
+            font-size: 13px;
+        }
+        
+        /* 优势列表 */
+        .advantages {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .advantage-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px;
+            background: #f8fbff;
+            border-radius: 8px;
+            border-left: 3px solid #0077cc;
+        }
+        
+        .advantage-icon {
+            width: 40px;
+            height: 40px;
+            background: #0077cc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        
+        .advantage-text h4 {
+            color: #333;
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+        
+        .advantage-text p {
+            color: #666;
+            font-size: 13px;
+        }
+        
+        /* 参数表格 */
+        .params-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        
+        .params-table th,
+        .params-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+        
+        .params-table th {
+            background: linear-gradient(135deg, #0077cc 0%, #0055aa 100%);
+            color: white;
+            font-weight: normal;
+        }
+        
+        .params-table tr:nth-child(even) {
+            background: #f8fbff;
+        }
+        
+        /* 行业标签 */
+        .industries {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .industry-tag {
+            background: #e6f3ff;
+            color: #0077cc;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+        
+        /* 案例 */
+        .cases {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .case-item {
+            background: #f8fbff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .case-item .icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .case-item p {
+            color: #666;
+            font-size: 13px;
+        }
+        
+        /* 联系信息 */
+        .contact-info {
+            background: #f8fbff;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #0077cc;
+        }
+        
+        .contact-info p {
+            margin-bottom: 10px;
+            color: #666;
+        }
+        
+        .contact-info strong {
+            color: #333;
+        }
+        
+        .contact-info .hotline {
+            font-size: 20px;
+            color: #0077cc;
+            font-weight: bold;
+        }
+        
+        /* 底部 */
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        
+        .footer p {
+            font-size: 13px;
+            opacity: 0.8;
+        }
+        
+        /* 悬浮表单 */
+        .float-form {
+            position: fixed;
+            right: 20px;
+            bottom: 100px;
+            width: 300px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            z-index: 1000;
+            overflow: hidden;
+        }
+        
+        .float-form-header {
+            background: linear-gradient(135deg, #0077cc 0%, #0055aa 100%);
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+        }
+        
+        .float-form-body {
+            padding: 15px;
+        }
+        
+        .float-form-body input,
+        .float-form-body textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+        
+        .float-form-body textarea {
+            height: 80px;
+            resize: none;
+        }
+        
+        .float-form-body button {
+            width: 100%;
+            background: linear-gradient(135deg, #0077cc 0%, #0055aa 100%);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .float-form-body button:hover {
+            opacity: 0.9;
+        }
+        
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+            }
+            
+            .banner {
+                height: 200px;
+            }
+            
+            .banner h1 {
+                font-size: 24px;
+            }
+            
+            .nav {
+                display: none;
+            }
+            
+            .float-form {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">H</div>
+                <span>沪升制冷</span>
+            </div>
+            <nav class="nav">
+                <a href="#about">关于我们</a>
+                <a href="#products">产品中心</a>
+                <a href="#advantages">优势服务</a>
+                <a href="#params">技术参数</a>
+                <a href="#industries">适用行业</a>
+                <a href="#cases">工程案例</a>
+                <a href="#contact">联系我们</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 主内容区 -->
+    <div class="main-container">
+        <!-- 左侧导航 -->
+        <aside class="sidebar">
+            <div class="sidebar-menu">
+                <h3>产品服务</h3>
+                <ul>
+                    <li><a href="#about">关于我们</a></li>
+                    <li><a href="#products">产品中心</a></li>
+                    <li><a href="#advantages">优势服务</a></li>
+                    <li><a href="#params">技术参数</a></li>
+                    <li><a href="#industries">适用行业</a></li>
+                    <li><a href="#cases">工程案例</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- 右侧内容 -->
+        <main class="content">
+            <!-- Banner -->
+            <div class="banner">
+                <h1>沪升制冷科技</h1>
+                <p>专业冷库设计 | 生产 | 安装 | 维修 一站式解决方案</p>
+            </div>
+
+            <!-- 关于我们 -->
+            <section id="about">
+                <h2 class="section-title">关于我们</h2>
+                <p class="about-text">
+                    沪升（无锡）制冷科技有限公司，专注于冷库设计、生产、安装、维修及一站式冷链解决方案，是集技术研发、工程施工、售后服务于一体的专业制冷企业。公司依托成熟的技术团队与丰富的行业经验，为食品加工、生鲜冷链、医药储存，物流仓储、餐饮连锁、农副产品等行业提供高品质、节能型冷库工程。
+                </p>
+                <p class="about-text">
+                    我们坚持以品质为核心、以客户需求为导向，从现场勘测、方案定制、设备选型到安装调试、售后维保，提供全流程专业服务，确保每一套冷库系统稳定、高效、节能运行。立足无锡，服务长三角，致力于成为客户信赖的一站式制冷解决方案服务商。
+                </p>
+            </section>
+
+            <!-- 产品中心 -->
+            <section id="products">
+                <h2 class="section-title">核心产品</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <span class="product-icon">🥬</span>
+                        <h4>保鲜冷库</h4>
+                        <p>水果、蔬菜、花卉、食材保鲜储存</p>
+                    </div>
+                    <div class="product-card">
+                        <span class="product-icon">🥩</span>
+                        <h4>低温冷库</h4>
+                        <p>肉类、水产、冻品低温冷冻</p>
+                    </div>
+                    <div class="product-card">
+                        <span class="product-icon">🧊</span>
+                        <h4>速冻冷库</h4>
+                        <p>食品快速锁鲜、速冻加工</p>
+                    </div>
+                    <div class="product-card">
+                        <span class="product-icon">💊</span>
+                        <h4>医药阴凉库</h4>
+                        <p>药品、试剂、生物制品恒温储存</p>
+                    </div>
+                    <div class="product-card">
+                        <span class="product-icon">🚛</span>
+                        <h4>物流冷库</h4>
+                        <p>冷链仓储、分拣、配送一体化冷库</p>
+                    </div>
+                    <div class="product-card">
+                        <span class="product-icon">🏭</span>
+                        <h4>工业制冷</h4>
+                        <p>车间降温、工艺冷却、制冷设备安装</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 优势服务 -->
+            <section id="advantages">
+                <h2 class="section-title">产品优势</h2>
+                <div class="advantages">
+                    <div class="advantage-item">
+                        <div class="advantage-icon">✓</div>
+                        <div class="advantage-text">
+                            <h4>专业定制</h4>
+                            <p>根据场地、温度、用途一对一设计方案</p>
+                        </div>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-icon">⚡</div>
+                        <div class="advantage-text">
+                            <h4>节能省电</h4>
+                            <p>选用高效机组，优化系统，降低运行成本</p>
+                        </div>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-icon">🛡</div>
+                        <div class="advantage-text">
+                            <h4>稳定耐用</h4>
+                            <p>品牌压缩机+优质保温板，使用寿命长</p>
+                        </div>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-icon">🚀</div>
+                        <div class="advantage-text">
+                            <h4>快速交付</h4>
+                            <p>标准化施工，工期可控，交付准时</p>
+                        </div>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-icon">🔧</div>
+                        <div class="advantage-text">
+                            <h4>全程服务</h4>
+                            <p>设计→生产→安装→调试→售后一条龙</p>
+                        </div>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-icon">📋</div>
+                        <div class="advantage-text">
+                            <h4>资质齐全</h4>
+                            <p>具备工程施工、设备安装等专业资质</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 技术参数 -->
+            <section id="params">
+                <h2 class="section-title">冷库核心参数</h2>
+                <table class="params-table">
+                    <tr>
+                        <th>项目</th>
+                        <th>参数说明</th>
+                    </tr>
+                    <tr>
+                        <td><strong>温度范围</strong></td>
+                        <td>保鲜：0℃~15℃ / 冷冻：-18℃~-25℃ / 速冻：-30℃~-45℃</td>
+                    </tr>
+                    <tr>
+                        <td><strong>库体结构</strong></td>
+                        <td>聚氨酯保温板，厚度100mm/150mm/200mm可选</td>
+                    </tr>
+                    <tr>
+                        <td><strong>制冷机组</strong></td>
+                        <td>品牌压缩机，风冷/水冷可选</td>
+                    </tr>
+                    <tr>
+                        <td><strong>控制方式</strong></td>
+                        <td>微电脑自动控温，超温报警，断电记忆</td>
+                    </tr>
+                    <tr>
+                        <td><strong>适用场景</strong></td>
+                        <td>食品、医药、生鲜、物流、工业、餐饮等</td>
+                    </tr>
+                    <tr>
+                        <td><strong>定制服务</strong></td>
+                        <td>尺寸、温度、门体、机组、功能均可定制</td>
+                    </tr>
+                </table>
+            </section>
+
+            <!-- 适用行业 -->
+            <section id="industries">
+                <h2 class="section-title">适用行业</h2>
+                <div class="industries">
+                    <span class="industry-tag">生鲜果蔬</span>
+                    <span class="industry-tag">肉类水产</span>
+                    <span class="industry-tag">预制菜</span>
+                    <span class="industry-tag">餐饮连锁</span>
+                    <span class="industry-tag">食品加工</span>
+                    <span class="industry-tag">医药冷链</span>
+                    <span class="industry-tag">物流仓储</span>
+                    <span class="industry-tag">农副产品</span>
+                    <span class="industry-tag">烘焙糕点</span>
+                    <span class="industry-tag">化工原料</span>
+                </div>
+            </section>
+
+            <!-- 工程案例 -->
+            <section id="cases">
+                <h2 class="section-title">工程案例</h2>
+                <p style="color: #666; margin-bottom: 20px;">公司已为长三角地区多家企业提供冷库建设服务，涵盖：</p>
+                <div class="cases">
+                    <div class="case-item">
+                        <div class="icon">🏪</div>
+                        <p>生鲜超市</p>
+                    </div>
+                    <div class="case-item">
+                        <div class="icon">🏭</div>
+                        <p>食品厂</p>
+                    </div>
+                    <div class="case-item">
+                        <div class="icon">💊</div>
+                        <p>医药公司</p>
+                    </div>
+                    <div class="case-item">
+                        <div class="icon">🚛</div>
+                        <p>冷链物流中心</p>
+                    </div>
+                    <div class="case-item">
+                        <div class="icon">🌾</div>
+                        <p>农产品基地</p>
+                    </div>
+                </div>
+                <p style="color: #999; font-size: 13px;">凭借稳定的工程质量与完善的售后服务获得客户一致认可</p>
+            </section>
+
+            <!-- 联系我们 -->
+            <section id="contact">
+                <h2 class="section-title">联系我们</h2>
+                <div class="contact-info">
+                    <p><strong>公司名称：</strong>沪升（无锡）制冷科技有限公司</p>
+                    <p><strong>地址：</strong>江苏省无锡市宜兴市万石镇南漕人民东路1号</p>
+                    <p><strong>服务热线：</strong><span class="hotline">400-888-8888</span></p>
+                    <p><strong>业务范围：</strong>冷库设计、冷库安装、冷库维修、制冷设备销售</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- 底部 -->
+    <footer class="footer">
+        <p>© 2026 沪升（无锡）制冷科技有限公司 版权所有</p>
+    </footer>
+
+    <!-- 悬浮表单 -->
+    <div class="float-form">
+        <div class="float-form-header">在线留言</div>
+        <div class="float-form-body">
+            <input type="text" placeholder="您的姓名">
+            <input type="tel" placeholder="联系电话">
+            <textarea placeholder="请填写您的需求..."></textarea>
+            <button onclick="alert('感谢您的留言！我们会尽快联系您。')">提交留言</button>
+        </div>
+    </div>
+
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 左侧菜单点击效果
+        document.querySelectorAll('.sidebar-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('.sidebar-menu a').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

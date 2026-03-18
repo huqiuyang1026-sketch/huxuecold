@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>工程案例_沪升制冷科技</title>
+    <meta name="description" content="沪升制冷工程案例，涵盖食品加工、医药冷链、物流仓储等领域">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; color: #333; line-height: 1.6; }
+        
+        .header {
+            background: linear-gradient(135deg, #0077cc 0%, #0055aa 100%);
+            color: white;
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .logo { font-size: 24px; font-weight: bold; display: flex; align-items: center; }
+        .logo-icon {
+            width: 40px; height: 40px; background: white; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin-right: 10px; color: #0077cc; font-weight: bold; font-size: 20px;
+        }
+        .nav { display: flex; gap: 30px; }
+        .nav a { color: white; text-decoration: none; font-size: 15px; }
+        
+        .breadcrumb { background: #f5f5f5; padding: 12px 0; margin-top: 70px; }
+        .breadcrumb-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; font-size: 13px; color: #666; }
+        .breadcrumb a { color: #0077cc; text-decoration: none; }
+        
+        .main { max-width: 1200px; margin: 0 auto; padding: 30px 20px; }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #0077cc;
+        }
+        .page-header h1 { font-size: 32px; color: #0077cc; margin-bottom: 10px; }
+        .page-header p { color: #666; font-size: 15px; }
+        
+        .cases-section { margin-bottom: 50px; }
+        .cases-section h2 {
+            font-size: 22px;
+            color: #333;
+            border-left: 4px solid #0077cc;
+            padding-left: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+        .case-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+        .case-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,119,204,0.2); }
+        .case-img {
+            height: 200px;
+            background: linear-gradient(135deg, #0077cc 0%, #00aaff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            position: relative;
+        }
+        .case-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: white;
+            color: #0077cc;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+        }
+        .case-info { padding: 20px; }
+        .case-info h3 { font-size: 18px; color: #333; margin-bottom: 10px; }
+        .case-info .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+        .case-info .tag { background: #e6f3ff; color: #0077cc; padding: 3px 10px; border-radius: 3px; font-size: 12px; }
+        .case-info p { color: #666; font-size: 14px; line-height: 1.6; }
+        
+        .honor-section { margin-bottom: 50px; }
+        .honor-section h2 {
+            font-size: 22px;
+            color: #333;
+            border-left: 4px solid #0077cc;
+            padding-left: 15px;
+            margin-bottom: 25px;
+        }
+        .honor-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .honor-card {
+            text-align: center;
+            padding: 25px;
+            background: #f8fbff;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+        }
+        .honor-icon { font-size: 48px; margin-bottom: 15px; }
+        .honor-card h4 { color: #333; font-size: 14px; }
+        
+        .cta {
+            background: linear-gradient(135deg, #0077cc 0%, #0055aa 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .cta h3 { font-size: 24px; margin-bottom: 10px; }
+        .cta p { opacity: 0.9; margin-bottom: 20px; }
+        .cta-btn {
+            display: inline-block;
+            background: white;
+            color: #0077cc;
+            padding: 12px 35px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .footer { background: #333; color: white; text-align: center; padding: 20px; margin-top: 40px; }
+        .footer p { font-size: 13px; opacity: 0.8; }
+        
+        @media (max-width: 768px) {
+            .case-grid, .honor-grid { grid-template-columns: 1fr; }
+            .nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo"><div class="logo-icon">H</div><span>沪升制冷</span></div>
+            <nav class="nav">
+                <a href="index.html#about">关于我们</a>
+                <a href="index.html#products">产品中心</a>
+                <a href="index.html#advantages">优势服务</a>
+                <a href="cases.html">工程案例</a>
+                <a href="index.html#contact">联系我们</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <div class="breadcrumb-content">
+            <a href="index.html">首页</a> > 工程案例
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="page-header">
+            <h1>工程案例</h1>
+            <p>已为长三角地区数百家企业提供冷库建设服务</p>
+        </div>
+
+        <div class="cases-section">
+            <h2>食品加工行业</h2>
+            <div class="case-grid">
+                <div class="case-card">
+                    <div class="case-img">🏭<span class="case-tag">食品加工</span></div>
+                    <div class="case-info">
+                        <h3>某大型肉类加工厂</h3>
+                        <div class="tags">
+                            <span class="tag">冷冻库</span>
+                            <span class="tag">速冻库</span>
+                        </div>
+                        <p>1000㎡冷冻库 + 500㎡速冻库，采用知名品牌机组，智能温控系统</p>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-img">🥮<span class="case-tag">食品加工</span></div>
+                    <div class="case-info">
+                        <h3>某烘焙食品厂</h3>
+                        <div class="tags">
+                            <span class="tag">保鲜库</span>
+                            <span class="tag">常温库</span>
+                        </div>
+                        <p>300㎡原料保鲜库，满足QS食品认证要求</p>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-img">🥬<span class="case-tag">食品加工</span></div>
+                    <div class="case-info">
+                        <h3>某预制菜生产基地</h3>
+                        <div class="tags">
+                            <span class="tag">速冻库</span>
+                            <span class="tag">保鲜库</span>
+                        </div>
+                        <p>800㎡综合冷库，支持预制菜生产加工流程</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cases-section">
+            <h2>医药冷链行业</h2>
+            <div class="case-grid">
+                <div class="case-card">
+                    <div class="case-img">💊<span class="case-tag">医药</span></div>
+                    <div class="case-info">
+                        <h3>某医药物流中心</h3>
+                        <div class="tags">
+                            <span class="tag">阴凉库</span>
+                            <span class="tag">冷藏库</span>
+                        </div>
+                        <p>符合GSP认证标准，2~8℃/8~20℃多温区控制</p>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-img">🏥<span class="case-tag">医药</span></div>
+                    <div class="case-info">
+                        <h3>某药品批发企业</h3>
+                        <div class="tags">
+                            <span class="tag">冷藏库</span>
+                            <span class="tag">阴凉库</span>
+                        </div>
+                        <p>500㎡药品库，配备温湿度监控系统，24小时报警</p>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-img">🔬<span class="case-tag">医药</span></div>
+                    <div class="case-info">
+                        <h3>某生物制剂公司</h3>
+                        <div class="tags">
+                            <span class="tag">低温库</span>
+                            <span class="tag">超低温库</span>
+                        </div>
+                        <p>-25℃~-80℃超低温库，满足生物样本存储需求</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cases-section">
+            <h2>物流仓储行业</h2>
+            <div class="case-grid">
+                <div class="case-card">
+                    <div class="case-img">🚛<span class="case-tag">物流</span></div>
+                    <div class="case-info">
+                        <h3>某冷链物流园</h3>
+                        <div class="tags">
+                            <span class="tag">多温区</span>
+                            <span class="tag">分拣</span>
+                        </div>
+                        <p>3000㎡物流冷库，包含冷冻/冷藏/保鲜多温区</p>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-img">🏪<span class="case-tag">物流</span></div>
+                    <div class="case-info">
+                        <h3>某生鲜配送中心</h3>
+                        <div class="tags">
+                            <span class="tag">保鲜库</span>
+                            <span class="tag">分拣</span>
+                        </div>
+                        <p>600㎡配送中心，支持生鲜产品分拣配送</p>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-img">🛒<span class="case-tag">物流</span></div>
+                    <div class="case-info">
+                        <h3>某电商仓库</h3>
+                        <div class="tags">
+                            <span class="tag">多温区</span>
+                            <span class="tag">自动化</span>
+                        </div>
+                        <p>1200㎡电商冷库，对接WMS仓储管理系统</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cases-section">
+            <h2>商超零售行业</h2>
+            <div class="case-grid">
+                <div class="case-card">
+                    <div class="case-img">🛒<span class="case-tag">商超</span></div>
+                    <div class="case-info">
+                        <h3>某连锁超市</h3>
+                        <div class="tags">
+                            <span class="tag">展示柜</span>
+                            <span class="tag">冷冻</span>
+                        </div>
+                        <p>20家门店冷链设备配送安装</p>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-img">🥩<span class="case-tag">商超</span></div>
+                    <div class="case-info">
+                        <h3>某品牌肉铺</h3>
+                        <div class="tags">
+                            <span class="tag">冷藏柜</span>
+                            <span class="tag">保鲜</span>
+                        </div>
+                        <p>连锁品牌冷柜定制，形象统一</p>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-img">🌊<span class="case-tag">商超</span></div>
+                    <div class="case-info">
+                        <h3>某海鲜市场</h3>
+                        <div class="tags">
+                            <span class="tag">海鲜池</span>
+                            <span class="tag">盐水</span>
+                        </div>
+                        <p>海水循环制冷系统，保持海鲜鲜活</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="honor-section">
+            <h2>资质荣誉</h2>
+            <div class="honor-grid">
+                <div class="honor-card">
+                    <div class="honor-icon">📜</div>
+                    <h4>制冷工程资质</h4>
+                </div>
+                <div class="honor-card">
+                    <div class="honor-icon">✅</div>
+                    <h4>ISO9001认证</h4>
+                </div>
+                <div class="honor-card">
+                    <div class="honor-icon">🏆</div>
+                    <h4>AAA级信用企业</h4>
+                </div>
+                <div class="honor-card">
+                    <div class="honor-icon">🔧</div>
+                    <h4>专业施工团队</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta">
+            <h3>需要建造冷库？</h3>
+            <p>专业团队免费为您提供方案设计和报价</p>
+            <a href="index.html#contact" class="cta-btn">立即咨询</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2026 沪升（无锡）制冷科技有限公司 版权所有</p>
+    </footer>
+</body>
+</html>
